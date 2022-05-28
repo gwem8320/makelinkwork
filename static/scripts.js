@@ -23,7 +23,12 @@ var prefix = "@USCIS "
 var hashtags = " #MakeNebraskaCenterWork #TransferCasestoNBC";
 var days_to_fiscal_year = get_remaining_business_days();
 
-var tweet_ids = ['1529848649915674624', '1529493517894131712', '1527646479690637313', '1529587645487144966']
+var tweet_ids = ['1529848649915674624', '1429836238719234049',
+    '1529812531887452167',
+    '1529813182822457348',
+    '1529502327312359426',
+    '',
+    '1529493517894131712', '1527646479690637313', '1529587645487144966']
 
 var text_section_1 = [
     'Dear @USCISDirector',
@@ -33,7 +38,12 @@ var text_section_1 = [
     '@USCISDirector, listen to us!',
     'Why @USCISDirector. Why?',
     'This is not fair @USCISDirector.',
-    '.@USCISDirector, your inaction is unacceptable!'
+    '@USCISDirector Treat us with dignity!',
+    '@USCISDirector, your inaction is unacceptable!',
+    '@USCISDirector @USCIS are you not tired of repeating  the same lies.',
+    "Dear @USCISDirector @RepZoeLofgren",
+    '@USCISDirector NSC Nebraska is big driver for this wastage, help!',
+
 ]
 
 text_section_1 = text_section_1.filter(onlyUnique)
@@ -42,22 +52,28 @@ var text_section_2 = [
     '@USCIS must provide relief NOW!',
     'Process cases or #TransferToNBC now!',
     'The lack of accountability for an agency funded by immigrants is baffling.',
-    '@USCISDirector @USCIS are you not tired of repeating  the same lies. I693 pending @ Nebraska since Sept/Oct 2021!',
-    'Treat us with dignity!',
+    'I693 pending @ Nebraska since Sept/Oct 2021!',
+    'Double whammy for high skilled workers: Green card delay epidemic amidst covid pandemic.',
+    'USCIS save high skilled workers from this pain of green card delay.',
     '#USCISAnswers When will Nebraska process pending RFERs since Sept/Oct 2021!!',
     'Do not punish immigrants! Relief now!',
     'Unbelievable! #USCISAnswers What is going on with #NebraskaServiceCenter? Why arent they approving fully qualified EB GCs?',
     'Your lack of action impacts THOUSANDS of families.',
-    'Do not throw immigrants under the bus.',
-    '@USCISDirector NSC Nebraska is big driver for this wastage, help!',
+    'Do not throw immigrants under the bus. Process pending Oct 2020 cases at NBC.',
     "Don't lie and make immigrants die!",
     'Take some action and provide relief now!',
+    "There are 1000s document qualified waiting final adjudication at NSC. Is NSC even working?",
     'Many RFE response havebeen pending for  225+ days at Nebraska! Is anything under your control @USCISDirector',
     'There are only ' + days_to_fiscal_year + ' days left in this fiscal year before we go back to 10s of years of backlog',
     'NSC published processing time for 765s 1-11 Month. Not true!',
     'Only ' + days_to_fiscal_year + ' days left in this fiscal year! ',
     'Wastage of 100,000 green cards is the ruin of 100,000 lives of legal immigrants who followed the rules.',
-    days_to_fiscal_year + " days remaining before 10000's of familes goes back to decade long backlog."
+    days_to_fiscal_year + " days remaining before 10000's of familes goes back to decade long backlog.",
+    "@doug_rand you said you process as considering receipt date?? Blatant lie? Or we are missing something?? Remember we are current and waiting since Oct 2020.",
+    "Congress is asking @USCIS to not waste eb green cards.",
+    "Please take a look at I-485 EB processing at Nebraska, These are terrible timelines.",
+    "Please adjudicate the cases that pending since 2020 and let the green cards don't get wasted.",
+    "Why create a concept of downgrading an application when you are not processing those?",
 ]
 
 text_section_2 = text_section_2.filter(onlyUnique)
@@ -111,7 +127,7 @@ var generateNextTweet = function () {
 }
 
 function get_in_reply_to() {
-    if (Math.floor(Math.random() * 8) == 4) {
+    if (Math.floor(Math.random() * 4) == 2) {
         return "in_reply_to=" + getRandomitem(tweet_ids, 999) + "&"
     }
     return ""
