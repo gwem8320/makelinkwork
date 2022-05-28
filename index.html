@@ -102,52 +102,11 @@
 
         </div>
        
-
+        <script src="static/scripts.js"></script>
         <script lang="Javascript">
-
-                
-
-            
             $(document).ready(function(){
-                
-                pbid = "#progressBar"
-                
-                tweetText = [
-                                "Dear @USCIS @USCISDirector @RepZoeLofgren NSC published processing time for 765s 1-11 Month. Not true! 100k applications submitted in Oct 2020 which are just Received status- Process these applications or present facts #NebraskaUSCISDelays",
-                                "Dear @USCIS @USCISDirector @RepZoeLofgren The lack of accountability for an agency funded by immigrants is baffling. Ready to waste 80K+ GC when they have 288K to adjudicate and 1M in backlog. @USCISDirector NSC Nebraska is big driver for this wastage,help!",
-                                "Dear @USCIS @USCISMediaCntrl @RepZoeLofgren @USCISDirector Your lack of action impacts THOUSANDS of families. Anyting to comment? Unbelievable! What is going on with #NebraskaServiceCenter? Why arent they approving fully qualified EB GCs?"
-                            ]
-
-                function setProgressBar(pi, val){
-
-                    min = $(pbid).attr("aria-valuemin");
-                    max = $(pbid).attr("aria-valuemax");
-                    valper = (val+1)/(max-min)*100;
-                   
-
-                    $(pi).css('width', valper+'%').attr('aria-valuenow', val)
-                }
-                var twitter_url = "https://twitter.com/intent/tweet?";
-                var inreplyto = "";
-                var textSuffix = "text=";
-                var prefix="@USCIS "
-                var hashtags = " #MakeNebraskaCenterWork #TransferCasestoNBC";
-                var generateNextTweet = function(){
-                    debugger;
-                    rnd = Math.floor(Math.random() * tweetText.length);
-                    tt = prefix+tweetText[rnd]+hashtags;
-
-                    
-
-                    twitterHref=twitter_url+inreplyto+textSuffix+encodeURIComponent(tt);
-
-                    $("#tweetInReplyTo").attr("href",twitterHref);
-                    $("#tweetToUscis").attr("href",twitterHref);
-                    $('#textarMessage').html(tt);
-
-                }
-
                 var timeleft = 30;
+                
                 generateNextTweet()
                 $("#btnGenerateNext").click(generateNextTweet)
                 var downloadTimer = setInterval(function() {
@@ -155,25 +114,18 @@
                         timeleft = 30
                         clearInterval(downloadTimer);
                         $("#timeleft").html('Time to tweet!')
-                        //$("#progressBar").innerHTML = "Finished";
+                        
                         generateNextTweet()
                     } else {
-                        //setProgressBar(pbid, timeleft)
                         $("#timeleft").html(timeleft + ' sec')
                         setProgressBar(pbid,30-timeleft)
-                    
                     }
                     timeleft -= 1;
                 }, 1000);
-
-
-                //setInterval(function () { $("#button").click(); }, 30000);
-                //downloadTimer();
+                
 
             });
         </script>
-
-
     </body>
 
 </html>
