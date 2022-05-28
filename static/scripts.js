@@ -124,6 +124,7 @@ function getRandomitem(list_text, max_size) {
     if (max_size <= 0) {
         return ""
     }
+    list_text = shuffle(list_text)
     sz = list_text.length;
     keep_doing = 0
     do {
@@ -135,6 +136,23 @@ function getRandomitem(list_text, max_size) {
         keep_doing++
     } while (keep_doing < MAX_ITERATION)
     return ""
+}
+
+function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
 }
 
 function getRandomitemunique(list_text, max_size, comparewith) {
