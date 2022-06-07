@@ -1,11 +1,6 @@
 pbid = "#progressBar"
 MAX_TWEET_SIZE = 240
 MAX_ITERATION = 20
-tweetText = [
-    "Dear @USCIS @USCISDirector @RepZoeLofgren NSC published processing time for 765s 1-11 Month. Not true! 100k applications submitted in Oct 2020 which are just Received status- Process these applications or present facts #NebraskaUSCISDelays",
-    "Dear @USCIS @USCISDirector @RepZoeLofgren The lack of accountability for an agency funded by immigrants is baffling. Ready to waste 80K+ GC when they have 288K to adjudicate and 1M in backlog. ",
-    "Dear @USCIS @USCISMediaCntrl @RepZoeLofgren @USCISDirector  Anyting to comment? Unbelievable! What is going on with #NebraskaServiceCenter? Why arent they approving fully qualified EB GCs?"
-]
 
 function setProgressBar(pi, val) {
 
@@ -144,7 +139,7 @@ function getRandomitem(list_text, max_size) {
     sz = list_text.length;
     keep_doing = 0
     do {
-        rnd = Math.floor(Math.random() * tweetText.length);
+        rnd = Math.floor(Math.random() * list_text.length);
         item = list_text[rnd]
         if (item.length < max_size) {
             return item
